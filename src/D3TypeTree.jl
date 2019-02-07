@@ -2,7 +2,7 @@
 isdefined(Base, :__precompile__) && __precompile__()
 
 """
-Module for constructing self-contained power system objects.
+Module for visualizing julia type hierarchies
 """
 module D3TypeTree
 
