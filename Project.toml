@@ -1,3 +1,9 @@
+name = "D3TypeTree"
+uuid = "0cc74c82-2b24-11e9-348f-c5569705488e"
+authors = ["cbarrows <clayton.barrows@nrel.gov>"]
+version = "0.1.0"
+
 [deps]
 D3Trees = "e3df1716-f71e-5df9-9e2d-98e193103c45"
+InteractiveUtils = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"

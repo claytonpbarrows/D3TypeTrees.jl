@@ -16,9 +16,10 @@ export TypeTree
 
 using JSON
 using D3Trees
+using InteractiveUtils
 
 function wrap(t::Type)
-	s = subtypes(t)
+	s = InteractiveUtils.subtypes(t)
 	if isempty(s)
 		d = [string(fn) for fn in fieldnames(t)]
 	else
