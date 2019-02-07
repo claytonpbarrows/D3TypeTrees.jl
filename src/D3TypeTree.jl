@@ -17,10 +17,6 @@ export TypeTree
 using JSON
 using D3Trees
 
-
-#################################################################################
-# Source
-
 function wrap(t::Type)
 	s = subtypes(t)
 	if isempty(s)
