@@ -10,6 +10,7 @@ module D3TypeTrees
 # Exports
 
 export TypeTree
+export DisplayTypeTree
 
 #################################################################################
 # Imports
@@ -59,10 +60,19 @@ function get_children(d::Dict, c = Array{Array{Any,1},1}(),n = Array{String,1}()
 	return c[2:end], reverse(n), reverse(f)
 end
 
-function TypeTree(t::Type;browser="google chrome",init_expand=10)
+function TypeTree(t::Type; init_expand=1)
 	t = Dict(string(t)=>wrap(t))
 	children, names, fields = get_children(t)
-    tree = D3Tree(children,text = names,tooltip = fields,init_expand=10)
+	tree = D3Tree(children,text = names,tooltip = fields,init_expand=1)
+	return tree
+end
+
+function DisplayTypeTree(t::Type; browser="google chrome", init_expand=1)
+    tree = TypeTree(t,init_expand = init_expand)
+    DisplayTypeTree(tree,browser = browser)
+end
+
+function DisplayTypeTree(tree::D3Trees.D3Tree; browser="google chrome")
     inbrowser(tree,browser)
 end
 
