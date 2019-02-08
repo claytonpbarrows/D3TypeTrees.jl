@@ -21,7 +21,6 @@ using InteractiveUtils
 function wrap(t::Type)
 	s = InteractiveUtils.subtypes(t)
 	if isempty(s)
-		println(t)
 		d = try
 			[string(fn) for fn in fieldnames(t)]
 		catch
