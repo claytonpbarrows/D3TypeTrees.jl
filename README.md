@@ -1,5 +1,8 @@
 # D3TypeTrees.jl
 
+[![Build status](https://ci.appveyor.com/api/projects/status/gj8ndhle09g9dknt?svg=true)](https://ci.appveyor.com/project/claytonpbarrows/d3typetrees-jl)
+
+
 julia type hierarchy visualization
 
 ## Installation
