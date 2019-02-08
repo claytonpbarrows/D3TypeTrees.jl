@@ -63,7 +63,7 @@ end
 function TypeTree(t::Type; init_expand=1)
 	t = Dict(string(t)=>wrap(t))
 	children, names, fields = get_children(t)
-	tree = D3Tree(children,text = names,tooltip = fields,init_expand=1)
+	tree = D3Tree(children,text = names,tooltip = fields,init_expand=init_expand)
 	return tree
 end
 
