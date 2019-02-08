@@ -4,7 +4,7 @@ isdefined(Base, :__precompile__) && __precompile__()
 """
 Module for visualizing julia type hierarchies
 """
-module D3TypeTree
+module D3TypeTrees
 
 #################################################################################
 # Exports
@@ -21,7 +21,12 @@ using InteractiveUtils
 function wrap(t::Type)
 	s = InteractiveUtils.subtypes(t)
 	if isempty(s)
-		d = [string(fn) for fn in fieldnames(t)]
+		println(t)
+		d = try
+			[string(fn) for fn in fieldnames(t)]
+		catch
+			[]
+		end
 	else
 		d = Dict()
 		for t_inner in s

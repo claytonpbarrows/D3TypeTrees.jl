@@ -1,11 +1,11 @@
-# D3TypeTree.jl
+# D3TypeTrees.jl
 
 julia type hierarchy visualization
 
 ## Installation
 
 ```
-Pkg.add("https://github.com/claytonpbarrows/D3TypeTree.jl")
+Pkg.add("https://github.com/claytonpbarrows/D3TypeTrees.jl")
 ```
 
 ## Example
