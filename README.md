@@ -1,5 +1,7 @@
 # D3TypeTrees.jl
 
+[![Build Status](https://travis-ci.org/claytonpbarrows/D3TypeTrees.jl.svg?branch=master)](https://travis-ci.org/claytonpbarrows/D3TypeTrees.jl)
+
 [![Build status](https://ci.appveyor.com/api/projects/status/gj8ndhle09g9dknt?svg=true)](https://ci.appveyor.com/project/claytonpbarrows/d3typetrees-jl)
 
 
