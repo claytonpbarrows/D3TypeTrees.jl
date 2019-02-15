@@ -10,7 +10,8 @@ julia type hierarchy visualization
 ## Installation
 
 ```
-Pkg.add("https://github.com/claytonpbarrows/D3TypeTrees.jl")
+using Pkg
+Pkg.add("D3TypeTrees")
 ```
 
 ## Example
