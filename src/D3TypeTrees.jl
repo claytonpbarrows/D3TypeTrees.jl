@@ -39,18 +39,19 @@ function wrap(t::Type)
 end
 
 
-function get_children(d::Dict, c = Array{Array{Any,1},1}(),n = Array{String,1}(),f = Array{String,1}())
+function get_children(d::Dict, c = Array{Array{Any,1},1}(),n = Array{String,1}(),f = Array{String,1}(); scopesep = ".")
 	cc = Array{Any,1}()
 	for (k,v) in d
+		K = join(split(String(k),"."),scopesep)
 		if isa(v,Dict) 
-			get_children(v,c,n,f)
-			push!(cc,String(k))
+			get_children(v,c,n,f,scopesep = scopesep)
+			push!(cc,K)
 		elseif isa(v,Array)
 			push!(c,[])
-			push!(cc,String(k))
+			push!(cc,K)
 		end
-		if !(String(k) in n)
-			push!(n,String(k))
+		if !(K in n)
+			push!(n,K)
 			push!(f,isa(v,Array) ? join(v,"\n") : "Abstract")
 		end
 	end
@@ -60,15 +61,15 @@ function get_children(d::Dict, c = Array{Array{Any,1},1}(),n = Array{String,1}()
 	return c[2:end], reverse(n), reverse(f)
 end
 
-function TypeTree(t::Type; init_expand=1)
+function TypeTree(t::Type; init_expand=1, scopesep = ".")
 	t = Dict(string(t)=>wrap(t))
-	children, names, fields = get_children(t)
+	children, names, fields = get_children(t,scopesep = scopesep)
 	tree = D3Tree(children,text = names,tooltip = fields,init_expand=init_expand)
 	return tree
 end
 
-function DisplayTypeTree(t::Type; browser="google chrome", init_expand=1)
-    tree = TypeTree(t,init_expand = init_expand)
+function DisplayTypeTree(t::Type; browser="google chrome", init_expand=1, scopesep = ".")
+    tree = TypeTree(t,init_expand = init_expand, scopesep = scopesep)
     DisplayTypeTree(tree,browser = browser)
 end
 
