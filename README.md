@@ -22,6 +22,8 @@ The following will open a D3 visualization of the subtypes of the 'Number' type 
 DisplayTypeTree(Number)
 ```
 
+![Tree](Number-tree.png)
+
 You can also display a tree in the REPL
 
 ```julia
@@ -45,7 +47,6 @@ Number
 
 In a Notebook, the `TypeTree()` displays the D3 tree visualization 
 
-![Tree](Number-tree.png)
 
 ## Limitations
 
